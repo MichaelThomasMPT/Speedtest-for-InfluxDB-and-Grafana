@@ -24,6 +24,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:$image_tag
     - name: Tag Docker image as latest
-      run: docker tag ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:$image-tag ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:latest
+      run: docker tag ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:$image_tag ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:latest
     - name: Publish the Docker image
       run: docker push --all-tags ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana
