@@ -12,7 +12,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      image-tag: $(date +%s)
+      image_tag: $(date +%s)
 
     steps:
     - uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:$image-tag
+      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:$image_tag
     - name: Tag Docker image as latest
       run: docker tag ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:$image-tag ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:latest
     - name: Publish the Docker image
