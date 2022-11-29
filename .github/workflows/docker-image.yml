@@ -22,4 +22,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:$(date +%s)
     - name: Publish the Docker image
-      run: docker push ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana::$(date +%s)
+      run: docker push ${{secrets.DOCKER_USER}}/speedtest-for-influxdb-and-grafana:$(date +%s)
